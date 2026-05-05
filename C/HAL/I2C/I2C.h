@@ -1,0 +1,42 @@
+/*
+ * I2C.h
+ *
+ *  Created on: 2026. 5. 4.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_HAL_I2C_I2C_H_
+#define SRC_HAL_I2C_I2C_H_
+
+#include <stdint.h>
+ 
+ typedef struct 
+ {
+     uint32_t CMD_SIGNAL; //slv_reg : cmd_start,write,read,stop, ack_in
+     uint32_t TX_DATA;   //slv_reg1 Tx_data[7:0]
+     uint32_t O_SIGNAL; // slv_reg2: done, busy, ack_out
+     uint32_t RX_DATA; //slv_reg3: rx_data[7:0]
+    }i2c_Typedef_t;
+    
+#define I2C_BASE_ADDR 0x44A00000
+
+#define I2C_CMD_SIGNAL (*(uint32_t *) (I2C_BASE_ADDR + 0x00))
+#define I2C_TX_DATA (*(uint32_t *) (I2C_BASE_ADDR + 0x04))
+#define I2C_O_SIGNAL (*(uint32_t *) (I2C_BASE_ADDR + 0x08))
+#define I2C_RX_DATA (*(uint32_t *) (I2C_BASE_ADDR + 0x0c))
+#define I2C_ACK 0 
+#define I2C_NACK 1
+
+#define I2C ((i2c_Typedef_t *)(I2C_BASE_ADDR))
+ 
+
+void I2C_init();
+void I2C_Start();
+void I2C_Write(uint8_t data);
+void I2C_Stop();
+uint8_t I2C_Read(uint8_t NACK);
+
+
+
+
+#endif /* SRC_HAL_I2C_I2C_H_ */
