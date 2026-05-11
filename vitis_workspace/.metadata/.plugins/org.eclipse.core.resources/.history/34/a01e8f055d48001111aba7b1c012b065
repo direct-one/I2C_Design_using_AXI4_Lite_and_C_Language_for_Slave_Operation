@@ -1,0 +1,57 @@
+/*
+ * ap_main.c
+ *
+ *  Created on: 2026. 5. 2.
+ *      Author: kccistc
+ */
+
+
+#include "ap_main.h"
+
+
+
+hBtn_t hbtncstart;
+hBtn_t hbtncwrite;
+hBtn_t hbtncread;
+hBtn_t hbtncstop;
+
+sw_t switch_mode;
+
+
+
+void ap_init()
+{
+    Switch_init(&switch_mode, GPIOA, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_4| GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7);
+    I2C_init();
+    //LED_Init();
+    FND_init();
+    Button_Init(&hbtncstart, GPIOD, GPIO_PIN_4);
+    Button_Init(&hbtncwrite, GPIOD, GPIO_PIN_5);
+    Button_Init(&hbtncread, GPIOD, GPIO_PIN_6);
+    Button_Init(&hbtncstop, GPIOD, GPIO_PIN_7);
+
+    FND_SetNum(0);
+
+
+}
+
+
+void ap_excute()
+{ 
+	 xil_printf("Looping\n");
+	    xil_printf("PIN4:%d PIN5:%d PIN6:%d PIN7:%d\n",
+	        GPIO_ReadPin(GPIOD, GPIO_PIN_4),
+	        GPIO_ReadPin(GPIOD, GPIO_PIN_5),
+	        GPIO_ReadPin(GPIOD, GPIO_PIN_6),
+	        GPIO_ReadPin(GPIOD, GPIO_PIN_7)
+	    );
+
+	    // ★ 버튼 GetState 반환값 직접 출력
+	    xil_printf("BTN4 state:%d\n", Button_GetState(&hbtncstart));
+	    xil_printf("BTN5 state:%d\n", Button_GetState(&hbtncwrite));
+	    xil_printf("BTN6 state:%d\n", Button_GetState(&hbtncread));
+	    xil_printf("BTN7 state:%d\n", Button_GetState(&hbtncstop));
+    
+
+}
+

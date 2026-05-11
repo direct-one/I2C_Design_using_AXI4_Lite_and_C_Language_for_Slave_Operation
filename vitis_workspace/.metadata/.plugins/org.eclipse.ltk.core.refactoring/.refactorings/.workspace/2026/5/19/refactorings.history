@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;AXI_I2C_p/src/HAL/SPI&apos;" deleteContents="false" description="Delete resource &apos;AXI_I2C_p/src/HAL/SPI&apos;" element1="/AXI_I2C_p/src/HAL/SPI" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1777860228047"/>
+</session>

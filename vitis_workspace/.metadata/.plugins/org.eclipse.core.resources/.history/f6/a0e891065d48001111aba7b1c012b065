@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="AXI_I2C_p" location="D:/vivado_first/2026_Project_AXI_I2C/vitis_workspace/AXI_I2C_p" platform="D:/vivado_first/2026_Project_AXI_I2C/vitis_workspace/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm" platformUID="xilinx:basys3::0.0(custom)" systemProject="AXI_I2C_p_system" sysConfig="design_1_wrapper" runtime="cpp" cpu="standalone_microblaze_0" cpuInstance="microblaze_0" os="standalone" mssSignature="885fcb2b355242cead6b8bf8f2f9a054">
+  <configuration name="Debug" id="xilinx.gnu.mb.exe.debug.271396168">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.mb.exe.release.642391600" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="empty_application"/>
+</sdkproject:SdkProject>
