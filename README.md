@@ -3,6 +3,9 @@
 # 📝 I2C Protocol Manual Controller
 
 본 프로젝트는 I2C 통신 프로토콜의 각 단계(Condition)를 독립적인 하드웨어 버튼으로 제어하여, 통신 흐름을 단계별로 검증하고 외부 슬레이브 장치를 제어하는 **I2C 마스터 컨트롤 시스템**입니다.
+## Ip Block Diagram 
+<img width="1595" height="746" alt="image" src="https://github.com/user-attachments/assets/3ee3ecc4-784b-4e2c-950f-eb3c323a139b" />
+
 
 ## 📌 주요 특징
 
