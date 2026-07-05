@@ -64,5 +64,5 @@ if(Button_GetState(&hbtncread) == ACT_PUSHED){
 ## 📅 프로젝트 정보
 
 - **작성일**: 2026. 05. 02.
-- **작성자**: kccistc
+- **작성자**: 김성훈
 - **대상 플랫폼**: RISC-V / ARM 기반 FPGA SoC 시스템
