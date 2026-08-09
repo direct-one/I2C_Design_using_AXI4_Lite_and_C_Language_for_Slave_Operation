@@ -60,6 +60,8 @@ if(Button_GetState(&hbtncread) == ACT_PUSHED){
     FND_SetNum(rx_data); // 결과 표시
 }
 ```
+### I2C 동작영상( I2C Operation Video )
+https://github.com/user-attachments/assets/f47cbe0b-bb04-46dc-99de-e34aac6554ef
 
 ## 📅 프로젝트 정보
 
