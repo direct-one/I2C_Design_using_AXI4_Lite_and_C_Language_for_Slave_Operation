@@ -1,0 +1,47 @@
+# Vivado generated output
+*.jou
+*.log
+*.str
+*.zip
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.tmp/
+*.xpr.user
+.Xil/
+
+# Vitis / Eclipse workspace metadata and generated platform output
+vitis_workspace/.analytics
+vitis_workspace/.metadata/
+vitis_workspace/IDE.log
+vitis_workspace/RemoteSystemsTempFiles/
+vitis_workspace/*/_ide/
+vitis_workspace/*/Debug/
+vitis_workspace/*/Release/
+vitis_workspace/design_1_wrapper/
+
+# Keep the application project and its handwritten sources. Ignore local IDE state.
+vitis_workspace/*/.settings/
+vitis_workspace/*/*.launch
+
+# Simulation and waveform artifacts
+*.wdb
+*.wcfg
+*.vcd
+*.fst
+*.coverage
+*.ucdb
+transcript
+work/
+
+# OS/editor temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+*.swp
+*.swo
+

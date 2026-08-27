@@ -1,2 +1,34 @@
 /Debug/
 /Release/
+
+# Ignore the entire Vitis workspace
+vitis_workspace/*
+
+# Keep the application project directory
+!vitis_workspace/AXI_I2C_p/
+
+# Ignore generated application project files
+vitis_workspace/AXI_I2C_p/*
+
+# Keep only manually written source code
+!vitis_workspace/AXI_I2C_p/src/
+!vitis_workspace/AXI_I2C_p/src/**
+
+# Vitis / Eclipse metadata
+.metadata/
+.settings/
+_ide/
+
+# Build results
+Debug/
+Release/
+**/Debug/
+**/Release/
+
+# Generated binaries
+*.elf
+*.o
+*.d
+*.a
+*.map
+*.log
