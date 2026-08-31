@@ -36,7 +36,7 @@ class axi_i2c_random_test_seq extends axi_i2c_base_seq;
         write_reg(4'h4, 32'h0000_00A5);
         read_reg (4'h4, rdata);
 
-        repeat (50) begin
+        repeat (1000) begin
             req = axi_i2c_seq_item::type_id::create("random_req");
             start_item(req);
             if (!req.randomize()) `uvm_fatal("SEQ", "Transaction randomization failed")
