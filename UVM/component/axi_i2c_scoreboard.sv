@@ -11,6 +11,7 @@ class axi_i2c_scoreboard extends uvm_scoreboard;
     uvm_analysis_imp #(axi_i2c_seq_item, axi_i2c_scoreboard) item_collected_export;
     logic [31:0] reg_model [0:1];
     int unsigned total_count, pass_count, fail_count, response_error_count;
+    int unsigned read_count, write_count;
 
     function new(string name = "axi_i2c_scoreboard", uvm_component parent = null);
         super.new(name, parent);
@@ -37,6 +38,11 @@ class axi_i2c_scoreboard extends uvm_scoreboard;
         logic [31:0] expected;
         int index;
         total_count++;
+
+        if (item.is_write)
+            write_count++;
+        else
+            read_count++;
 
         if (item.resp !== AXI_OKAY) begin
             response_error_count++;
@@ -77,9 +83,26 @@ class axi_i2c_scoreboard extends uvm_scoreboard;
 
     function void report_phase(uvm_phase phase);
         super.report_phase(phase);
-        `uvm_info("SCB_SUMMARY",
-                  $sformatf("total=%0d pass=%0d fail=%0d response_errors=%0d",
-                            total_count, pass_count, fail_count, response_error_count), UVM_NONE)
+
+        `uvm_info("SCB_SUMMARY", "", UVM_NONE)
+        `uvm_info("SCB_SUMMARY", "============================================================", UVM_NONE)
+        `uvm_info("SCB_SUMMARY", "                 AXI-I2C SCOREBOARD SUMMARY", UVM_NONE)
+        `uvm_info("SCB_SUMMARY", "============================================================", UVM_NONE)
+        `uvm_info("SCB_SUMMARY", $sformatf("  Total transactions : %0d", total_count), UVM_NONE)
+        `uvm_info("SCB_SUMMARY", $sformatf("  Write transactions : %0d", write_count), UVM_NONE)
+        `uvm_info("SCB_SUMMARY", $sformatf("  Read transactions  : %0d", read_count), UVM_NONE)
+        `uvm_info("SCB_SUMMARY", $sformatf("  Passed             : %0d", pass_count), UVM_NONE)
+        `uvm_info("SCB_SUMMARY", $sformatf("  Failed             : %0d", fail_count), UVM_NONE)
+        `uvm_info("SCB_SUMMARY", $sformatf("  AXI response errors: %0d", response_error_count), UVM_NONE)
+        `uvm_info("SCB_SUMMARY", "------------------------------------------------------------", UVM_NONE)
+
+        if ((total_count != 0) && (fail_count == 0))
+            `uvm_info("SCB_SUMMARY", "  RESULT: PASS", UVM_NONE)
+        else
+            `uvm_info("SCB_SUMMARY", "  RESULT: FAIL", UVM_NONE)
+
+        `uvm_info("SCB_SUMMARY", "============================================================", UVM_NONE)
+
         if (total_count == 0)
             `uvm_error("SCB_EMPTY", "No completed AXI transactions were observed")
         if (fail_count != 0)

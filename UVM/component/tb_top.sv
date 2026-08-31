@@ -64,16 +64,19 @@ module tb_top;
         forever #5 clk = ~clk; // 100MHz clock
     end
 
-    // Reset and UVM start
+    // Reset generation. Reset may consume simulation time, but run_test() may not.
     initial begin
         resetn = 0;
         #50 resetn = 1;
-        
+    end
+
+    // Configure the virtual interface and start UVM at simulation time 0.
+    initial begin
         // Pass interface to UVM config DB
         uvm_config_db#(virtual i2c_axi_if)::set(null, "*", "vif", vif);
-        
-        // Run test
-        run_test("axi_i2c_test");
+
+        // The test is selected by +UVM_TESTNAME from the Makefile.
+        run_test();
     end
 
 endmodule
